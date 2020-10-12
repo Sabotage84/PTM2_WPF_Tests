@@ -17,31 +17,15 @@
                     <localc:Servers/>
                 </TabItem.DataContext>
                 <Grid Background="#FFE5E5E5">
-                   
-                        <ListView x:Name="listvievservsrs" HorizontalAlignment="Left" Height="224" Margin="0,45,0,0" VerticalAlignment="Top" Width="586" ItemsSource="{Binding Servers_list}" >
+
+                    <ListView x:Name="listvievservsrs" HorizontalAlignment="Left" Height="224" Margin="0,45,0,0" VerticalAlignment="Top" Width="586" ItemsSource="{Binding Servers_list}" >
                         
-                            <ListView.View>
+
+                        <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Модель"  Width="120">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Path=Name}" TextWrapping="Wrap" ></TextBlock>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-
-                                </GridViewColumn>
-                                <GridViewColumn Header="Описание" Width="200">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock TextWrapping="Wrap" Margin="5"
-                         Foreground="DarkOrange"></TextBlock>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
+                                <GridViewColumn Header="Модель"  Width="120" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                                <GridViewColumn Header="Описание" Width="200"></GridViewColumn>
                                 <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Width="100">Цена</GridViewColumn>
-                                <GridViewColumn  Width="20">К</GridViewColumn>
-                                <GridViewColumn  Width="70">Вход</GridViewColumn>
-
                             </GridView>
                         </ListView.View>
                     </ListView>

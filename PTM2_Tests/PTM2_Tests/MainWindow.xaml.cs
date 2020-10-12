@@ -25,7 +25,15 @@ namespace PTM2_Tests
         public MainWindow()
         {
             InitializeComponent();
-           sl = new Servers();
+            sl = (Servers)Tab22.DataContext;
+            Server s1 = new Server();
+            s1.Name = "Server1";
+            s1.Price = 100;
+            sl.Servers_list.Add(s1);
+            Server s2 = new Server();
+            s2.Name = "Server2";
+            s2.Price = 200;
+            sl.Servers_list.Add(s2);
         }
 
         private void addServer_Click(object sender, RoutedEventArgs e)
@@ -35,7 +43,7 @@ namespace PTM2_Tests
             s3.Price = 300;
 
             sl.ADDServer(s3);
-            Servers temp = (Servers)Tab22.DataContext;
+            
 
         }
     }

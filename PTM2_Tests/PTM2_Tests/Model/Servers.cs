@@ -15,9 +15,9 @@ namespace PTM2_Tests.Model
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        ObservableCollection<Server> servers_list;
+        static ObservableCollection<Server> servers_list;
 
-        internal ObservableCollection<Server> Servers_list { get => servers_list;
+        public ObservableCollection<Server> Servers_list { get => servers_list;
             set { servers_list = value;
                 OnPropertyChanged(nameof(Servers_list));
             } }
@@ -29,10 +29,8 @@ namespace PTM2_Tests.Model
 
         public void ADDServer(Server item)
         {
-            List<Server> t = new List<Server>();
-            t.AddRange(Servers_list);
-            t.Add(item);
-            Servers_list= new ObservableCollection<Server>(t);
+            
+            Servers_list.Add(item);
         }
 
 
@@ -41,14 +39,7 @@ namespace PTM2_Tests.Model
         {
             Servers_list = new ObservableCollection<Server>();
             Servers_list.CollectionChanged += SL_CollectionChanged;
-            Server s1 = new Server();
-            s1.Name = "Server1";
-            s1.Price = 100;
-            Servers_list.Add(s1);
-            Server s2 = new Server();
-            s2.Name = "Server2";
-            s2.Price = 200;
-            Servers_list.Add(s2);
+           
         }
 
         private void SL_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
