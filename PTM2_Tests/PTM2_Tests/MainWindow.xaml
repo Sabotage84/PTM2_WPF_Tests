@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PTM2_Tests"
+        xmlns:localc="clr-namespace:PTM2_Tests.Model"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -11,15 +12,20 @@
             <TabItem Header="TabItem">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem x:Name="Tab22" Header="TabItem">
+                <TabItem.DataContext>
+                    <localc:Servers/>
+                </TabItem.DataContext>
                 <Grid Background="#FFE5E5E5">
-                    <ListView HorizontalAlignment="Left" Height="224" Margin="0,45,0,0" VerticalAlignment="Top" Width="586">
-                        <ListView.View>
+                   
+                        <ListView x:Name="listvievservsrs" HorizontalAlignment="Left" Height="224" Margin="0,45,0,0" VerticalAlignment="Top" Width="586" ItemsSource="{Binding Servers_list}" >
+                        
+                            <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Модель"  Width="120">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding Path=FullName}" TextWrapping="Wrap" ></TextBlock>
+                                            <TextBlock Text="{Binding Path=Name}" TextWrapping="Wrap" ></TextBlock>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
 
@@ -27,14 +33,14 @@
                                 <GridViewColumn Header="Описание" Width="200">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding Path=Description}" TextWrapping="Wrap" Margin="5"
+                                            <TextBlock TextWrapping="Wrap" Margin="5"
                          Foreground="DarkOrange"></TextBlock>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
                                 <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Width="100">Цена</GridViewColumn>
-                                <GridViewColumn DisplayMemberBinding="{Binding Path=K}" Width="20">К</GridViewColumn>
-                                <GridViewColumn DisplayMemberBinding="{Binding Path=InPrise}" Width="70">Вход</GridViewColumn>
+                                <GridViewColumn  Width="20">К</GridViewColumn>
+                                <GridViewColumn  Width="70">Вход</GridViewColumn>
 
                             </GridView>
                         </ListView.View>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PTM2_Tests.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,13 +21,21 @@ namespace PTM2_Tests
     /// </summary>
     public partial class MainWindow : Window
     {
+        Servers sl;
         public MainWindow()
         {
             InitializeComponent();
+           sl = new Servers();
         }
 
         private void addServer_Click(object sender, RoutedEventArgs e)
         {
+            Server s3 = new Server();
+            s3.Name = "Server3";
+            s3.Price = 300;
+
+            sl.ADDServer(s3);
+            Servers temp = (Servers)Tab22.DataContext;
 
         }
     }
